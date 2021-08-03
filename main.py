@@ -10,7 +10,6 @@ from random import randint
 N = input("How many tokens : ")
 count = 0
 current_path = os.path.dirname(os.path.realpath(__file__))
-url = "https://discordapp.com/api/v6/users/@me/library"
 
 while(int(count) < int(N)):
     tokens = []
@@ -34,7 +33,7 @@ while(int(count) < int(N)):
             "Content-Type": "application/json",
             "authorization": token
         }
-        r = requests.get(url, headers=header, proxies={"http": proxy})
+        r = requests.get('https://discord.com/api/v9/users/@me/guilds', headers=header, proxies={"http": proxy})
         print(token)
         if r.status_code == 200:
             print(u"\u001b[32;1m[+] Token Works!\u001b[0m")
